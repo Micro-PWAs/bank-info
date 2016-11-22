@@ -1,0 +1,27 @@
+#main {
+ background-color: #dbe9f0; 
+}
+
+.mdl-card.centered {
+  width: auto;
+  margin: 20px;
+}
+
+.center {
+  text-align: center;
+}
+
+.floating-list{
+  position: relative;
+}
+
+.floating-list .mdl-list {
+  box-shadow: 0 2px 2px #ccc;
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  top: 34px;
+  border-top: 0;
+  background: #fff;
+  z-index: 100;
+}
