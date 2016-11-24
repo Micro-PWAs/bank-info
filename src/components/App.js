@@ -9,12 +9,24 @@ import { Layout, Snackbar, Dialog, Button } from 'preact-mdl';
 import Header from './Header';
 import Sidebar from './Sidebar';
 import Content from './Content';
+import {getFullDetails} from '../lib/api';
 
-export default class App extends Component {  
-  findCode = _ => {
+export default class App extends Component { 
+  constructor(props, context) {
+    super(props, context);
+    this.state = {
+      ifscCode: '',
+      childState: {}
+    };
+  }
+  
+
+  findCode = async (childState) => {
     this.dialog.showModal();
+    let bankInfo = await getFullDetails(childState.bank, childState.branch);
     this.setState({
-      ifscCode: 'some number will be here'
+      ifscCode: bankInfo.data.IFSC,
+      childState
     });
   }
 
@@ -45,10 +57,9 @@ export default class App extends Component {
             <Button colored raised onClick={ _ => this.dialog.close() }>Close</Button>
           </Dialog.Actions>
         </Dialog>
-        <Layout id="main" fixed-header fixed-drawer>
-          <Sidebar />
+        <Layout id="main" fixed-header>
           <Header />
-          <Content onSubmit={this.findCode} showMessage={this.showMessage}/>
+          <Content onSubmit={this.findCode} showMessage={this.showMessage} childState={this.state.childState}/>
         </Layout>
         <Snackbar ref={snackbar => this.snackbar = snackbar} />
       </div>
