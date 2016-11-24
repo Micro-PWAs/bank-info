@@ -17,11 +17,41 @@
 
 .floating-list .mdl-list {
   box-shadow: 0 2px 2px #ccc;
-  position: absolute;
-  left: 10px;
-  right: 10px;
-  top: 34px;
+  /*margin: 0 20px;*/
+  margin-top: -20px;
   border-top: 0;
   background: #fff;
   z-index: 100;
+}
+
+.floating-list .mdl-list .mdl-list__item {
+  text-align: left;
+}
+
+.floating-list .mdl-list .mdl-list__item:hover {
+  background-color: #eee; 
+}
+
+.info {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 10px;
+  background-color: #fff;
+  color: #333;
+  box-shadow: 0 -2px 10px #ddd;
+  z-index: 1;
+}
+
+.info_author_wrapper {
+  margin-left: 10px;
+}
+
+.info_contribute {
+  margin-right: 20px;
+  float: right;
+}
+
+.info a {
+  color: #E91E63;
 }
