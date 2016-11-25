@@ -5,7 +5,7 @@ const Header = () => (
 	<Layout.Header>
 		<Layout.HeaderRow>
 			<Layout.Title>
-				IFSC Code Finder
+				Bank Informations
 			</Layout.Title>
 		</Layout.HeaderRow>
 	</Layout.Header>

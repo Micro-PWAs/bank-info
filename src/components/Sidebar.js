@@ -14,7 +14,7 @@ export default class Sidebar extends Component {
 	render() {
 		return (
 			<Layout.Drawer onClick={this.hide}>
-				<Layout.Title>IFSC Code Finder</Layout.Title>
+				<Layout.Title>Bank Info</Layout.Title>
 				<Navigation>
 					<a class="mdl-navigation__link" href="https://github.com/Micro-PWAs/ifsc-code-finder/">
 						<i class="material-icons">info_outline</i>
