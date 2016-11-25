@@ -14,7 +14,7 @@ module.exports = {
 		port: process.env.PORT || 9000,
 		host: '0.0.0.0',
 		publicPath: '/dist',
-		contentBase: './src',
+		contentBase: './public',
 		historyApiFallback: true
 	},
 	module: {
