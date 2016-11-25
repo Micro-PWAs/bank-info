@@ -4,7 +4,7 @@ import './App.css';
 
 import dialogPolyfill from 'dialog-polyfill';
 import { Component, h, render } from 'preact';
-import { Layout, Snackbar, Dialog, Button } from 'preact-mdl';
+import { Layout, Snackbar, Dialog, Button, List} from 'preact-mdl';
 
 import Header from './Header';
 import Sidebar from './Sidebar';
@@ -15,7 +15,7 @@ export default class App extends Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
-      ifscCode: '',
+      bankInfo: '',
       childState: {}
     };
   }
@@ -23,9 +23,9 @@ export default class App extends Component {
 
   findCode = async (childState) => {
     this.dialog.showModal();
-    let bankInfo = await getFullDetails(childState.bank, childState.branch);
+    let response = await getFullDetails(childState.bank, childState.branch);
     this.setState({
-      ifscCode: bankInfo.data.IFSC,
+      bankInfo: response.data,
       childState
     });
   }
@@ -44,15 +44,42 @@ export default class App extends Component {
   }
 
   render(){
+    let {
+      BANK, 
+      ADDRESS,
+      BRANCH,
+      CONTACT,
+      IFSC,
+      MICRCODE,
+      DISTRICT,
+      CITY,
+      STATE 
+    } = this.state.bankInfo;
     return (
       <div>
         <Dialog ref={ dialog => this.registerDialog(dialog.base) }>
           <Dialog.Title>
-            <h4>The IFSC code is : </h4>
+            <h4>{BANK}</h4>
           </Dialog.Title>
-          <Dialog.Content>
-            <h4>{this.state.ifscCode}</h4>
-          </Dialog.Content>
+          <div>
+            <List>
+              <List.Item>
+                <span>Branch : {BRANCH}</span>
+              </List.Item>
+              <List.Item>
+                <span>Address : {ADDRESS}</span>
+              </List.Item>
+              <List.Item>
+                <span>Phone : {CONTACT}</span>
+              </List.Item>
+              <List.Item>
+                <span>IFSC Code : {IFSC}</span>
+              </List.Item>
+              <List.Item>
+                <span>MICR Code : {MICRCODE}</span>
+              </List.Item>
+            </List>
+          </div>
           <Dialog.Actions>
             <Button colored raised onClick={ _ => this.dialog.close() }>Close</Button>
           </Dialog.Actions>
