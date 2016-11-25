@@ -1,2 +1,2 @@
-# ifsc-code-finder
-Small PWA for finding the bank IFSC code ( for Indian banks only now )
+# 💸 Bank Info PWA 💸
+Small Progressive Web App for finding the bank informations including IFSC code, Address, MICR code, and phone number ( for Indian banks only now )
