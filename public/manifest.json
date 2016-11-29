@@ -1,0 +1,26 @@
+{
+  "name": "Bank Info",
+  "short_name": "Bank Info",
+  "description": "💸 Small Progressive Web App for getting the bank information including IFSC code, Address, MICR code, ☎️ phone number ...etc",
+  "start_url": "./index.html?utm=homescreen",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#e91e63",
+  "theme_color": "#e91e63",
+  "icons": [{
+      "src": "./images/icon-192x192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "./images/icon-512x512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+  }],
+  "author": {
+    "name": "Shidhin C R",
+    "website": "https://www.undefinednull.com",
+    "github": "https://github.com/shidhincr",
+    "source-repo": "https://github.com/Micro-PWAs/bank-info"
+  }
+}
