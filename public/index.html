@@ -20,11 +20,142 @@
   <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
   <meta name="theme-color" content="#e91e63">
   <title>Bank Info</title>
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="manifest" href="manifest.json">
+  <style>
+    body {
+      margin: 0;
+      background-color: #ddeafb;
+    }
+    #HEADER_1 {
+      box-shadow: rgba(0, 0, 0, 0.137255) 0px 2px 2px 0px, rgba(0, 0, 0, 0.2) 0px 3px 1px -2px, rgba(0, 0, 0, 0.117647) 0px 1px 5px 0px;
+      box-sizing: border-box;
+      color: rgb(255, 255, 255);
+      display: flex;
+      height: 56px;
+      max-height: 1000px;
+      min-height: 56px;
+      min-width: auto;
+      width: 360px;
+      z-index: 3;
+      column-rule-color: rgb(255, 255, 255);
+      perspective-origin: 180px 28px;
+      transform-origin: 180px 28px;
+      background: rgb(233, 30, 99) none repeat scroll 0% 0% / auto padding-box border-box;
+      border: 0px none rgb(255, 255, 255);
+      flex: 0 0 auto;
+      flex-flow: column nowrap;
+      font: normal normal normal normal 14px / 20px Helvetica, Arial, sans-serif;
+      outline: rgb(255, 255, 255) none 0px;
+      transition: max-height 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0s, box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+  }/*#HEADER_1*/
+
+  #DIV_2 {
+      box-sizing: border-box;
+      color: rgb(255, 255, 255);
+      display: flex;
+      height: 56px;
+      min-height: auto;
+      min-width: auto;
+      width: 360px;
+      column-rule-color: rgb(255, 255, 255);
+      align-items: center;
+      perspective-origin: 180px 28px;
+      transform-origin: 180px 28px;
+      border: 0px none rgb(255, 255, 255);
+      flex: 0 0 auto;
+      font: normal normal normal normal 14px / 20px Helvetica, Arial, sans-serif;
+      outline: rgb(255, 255, 255) none 0px;
+      padding: 0px 16px 0px 72px;
+  }/*#DIV_2*/
+
+  #SPAN_3 {
+      bottom: 0px;
+      box-sizing: border-box;
+      color: rgb(255, 255, 255);
+      display: block;
+      height: 20px;
+      left: 0px;
+      letter-spacing: 0.4px;
+      min-height: auto;
+      min-width: auto;
+      position: relative;
+      right: 0px;
+      top: 0px;
+      width: 172.531px;
+      column-rule-color: rgb(255, 255, 255);
+      align-self: center;
+      perspective-origin: 86.2656px 10px;
+      transform-origin: 86.2656px 10px;
+      border: 0px none rgb(255, 255, 255);
+      flex: 0 0 auto;
+      font: normal normal normal normal 20px / 20px Roboto, Helvetica, Arial, sans-serif;
+      outline: rgb(255, 255, 255) none 0px;
+  }/*#SPAN_3*/
+
+  .signal {
+      border: 5px solid #e91e63;
+      border-radius: 30px;
+      height: 30px;
+      left: 50%;
+      margin: -15px 0 0 -15px;
+      opacity: 0;
+      position: absolute;
+      top: 50%;
+      width: 30px;
+  
+      animation: pulsate 1s ease-out;
+      animation-iteration-count: infinite;
+  }
+
+  @keyframes pulsate {
+      0% {
+        transform: scale(.1);
+        opacity: 0.0;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        transform: scale(1.2);
+        opacity: 0;
+      }
+  }
+
+
+    .info {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      padding: 10px;
+      background-color: #fff;
+      color: #333;
+      box-shadow: 0 -2px 10px #ddd;
+      z-index: 1;
+    }
+
+    .info_author_wrapper {
+      margin-left: 10px;
+    }
+
+    .info_contribute {
+      margin-right: 20px;
+      float: right;
+    }
+
+    .info a {
+      color: #E91E63;
+    }
+  </style>
 </head>
 <body>
-  <div id="app"></div>
+  <div id="app">
+    <header id="HEADER_1">
+      <div id="DIV_2">
+        <span id="SPAN_3">Bank Informations</span>
+      </div>
+    </header>
+    <div class="signal"></div>
+  </div>
   <div class="info">
     🎉 😎 <span class="info_author_wrapper">By <a href="https://twitter.com/shidhincr" class="info_author">Shidhin</a></span>
     <span class="info_contribute"><a href="https://github.com/Micro-PWAs/ifsc-code-finder/">Contribute</a></span>
