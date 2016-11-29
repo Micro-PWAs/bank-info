@@ -35,7 +35,6 @@
       max-height: 1000px;
       min-height: 56px;
       min-width: auto;
-      width: 360px;
       z-index: 3;
       column-rule-color: rgb(255, 255, 255);
       perspective-origin: 180px 28px;
@@ -160,7 +159,7 @@
     🎉 😎 <span class="info_author_wrapper">By <a href="https://twitter.com/shidhincr" class="info_author">Shidhin</a></span>
     <span class="info_contribute"><a href="https://github.com/Micro-PWAs/ifsc-code-finder/">Contribute</a></span>
   </div>
-  <script src="./dist/bundle.js"></script>
+  <script src="./dist/bundle.js" async></script>
   <script>
     if('serviceWorker' in navigator){
       navigator.serviceWorker.register('sw.js').then(function(){
