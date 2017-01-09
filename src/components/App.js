@@ -1,25 +1,33 @@
+import 'babel-polyfill';
 import 'material-design-lite';
-import 'material-design-lite/dist/material.pink-purple.min.css';
-import './App.css';
-
-import dialogPolyfill from 'dialog-polyfill';
 import { Component, h, render } from 'preact';
-import { Layout, Snackbar, Dialog, Button, List} from 'preact-mdl';
-
+import { Layout, Snackbar, Button, List} from 'preact-mdl';
 import Header from './Header';
-import Sidebar from './Sidebar';
-import Content from './Content';
-import {getFullDetails} from '../lib/api';
+
+let Content,
+    getFullDetails,
+    dialogPolyfill,
+    Dialog;
 
 export default class App extends Component { 
   constructor(props, context) {
     super(props, context);
     this.state = {
       bankInfo: '',
-      childState: {}
+      childState: {},
+      loaded: false
     };
   }
-  
+
+  componentDidMount(){
+    require.ensure([], _=>{
+      require('dialog-polyfill');
+      Content = require('./Content').default;
+      Dialog = require('preact-mdl').Dialog
+      getFullDetails = require('../lib/api').getFullDetails;
+      this.setState({ loaded: true });
+    });
+  }
 
   findCode = async (childState) => {
     this.dialog.showModal();
@@ -57,6 +65,7 @@ export default class App extends Component {
     } = this.state.bankInfo;
     return (
       <div>
+        {this.state.loaded && 
         <Dialog ref={ dialog => this.registerDialog(dialog.base) }>
           <Dialog.Title>
             <h4>{BANK}</h4>
@@ -84,9 +93,12 @@ export default class App extends Component {
             <Button colored raised onClick={ _ => this.dialog.close() }>Close</Button>
           </Dialog.Actions>
         </Dialog>
+        }
         <Layout id="main" fixed-header>
           <Header />
+          {this.state.loaded && 
           <Content onSubmit={this.findCode} showMessage={this.showMessage} childState={this.state.childState}/>
+          }
         </Layout>
         <Snackbar ref={snackbar => this.snackbar = snackbar} />
       </div>

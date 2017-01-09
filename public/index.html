@@ -21,6 +21,8 @@
   <meta name="theme-color" content="#e91e63">
   <title>Bank Info</title>
   <link rel="manifest" href="manifest.json">
+  <link rel="preload" href="./dist/bundle.js" as="script">
+  <link rel="preload" href="./dist/main.css" as="style" onload="this.rel='stylesheet'">
   <style>
     body {
       margin: 0;
@@ -160,16 +162,5 @@
     <span class="info_contribute"><a href="https://github.com/Micro-PWAs/ifsc-code-finder/">Contribute</a></span>
   </div>
   <script src="./dist/bundle.js" async></script>
-  <script>
-    if('serviceWorker' in navigator){
-      navigator.serviceWorker.register('sw.js').then(function(){
-        console.log('service worker installed');
-      }).catch(function(err){
-        console.log('service worker installation failed', err);
-      });
-    } else {
-      console.log('Your browser does not support service worker');
-    }
-  </script>
 </body>
 </html>

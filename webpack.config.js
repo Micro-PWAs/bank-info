@@ -1,11 +1,14 @@
-var webpack = require('webpack');
-var path = require('path');
+let webpack = require('webpack');
+let path = require('path');
+let ExtractTextPlugin = require('extract-text-webpack-plugin');
+let OfflinePlugin = require('offline-plugin');
 
 module.exports = {
-	entry: ['babel-polyfill', './src/index.js'],
+	entry: {bundle: './src/index.js', main: './src/components/App.css'},
 	output: {
 		path: path.resolve(__dirname, 'dist'),
-		filename: 'bundle.js'
+		filename: '[name].js',
+		publicPath: '/dist/'
 	},
 	resolve: {
 		modules: ['node_modules']
@@ -13,7 +16,7 @@ module.exports = {
 	devServer: {
 		port: process.env.PORT || 9000,
 		host: '0.0.0.0',
-		publicPath: '/dist',
+		publicPath: '/dist/',
 		contentBase: './public',
 		historyApiFallback: true
 	},
@@ -24,7 +27,15 @@ module.exports = {
 			loader: 'babel-loader'
 		}, {
 			test: /\.css$/,
-			loader: 'style-loader!css-loader'
+			loader: ExtractTextPlugin.extract({
+				fallbackLoader: 'style-loader',
+				loader:  [{
+					loader: 'css-loader',
+					options: {
+						modules: true,
+					}
+				}]
+			})
 		}, {
 			test: /\.ico$/,
 			loader: 'file-loader?name=[name].[ext]'
@@ -38,5 +49,12 @@ module.exports = {
 			test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
 			loader: 'file-loader?name=./[hash].[ext]'
 		}]
-	}
+	},
+	plugins: [
+		new ExtractTextPlugin('[name].css'),
+		new OfflinePlugin({
+			relativePaths: false,
+			externals: ['/']
+		})
+	]
 };

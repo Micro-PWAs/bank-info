@@ -1,7 +1,9 @@
 import {render,h, Component} from 'preact';
 import {Layout, Card, Button, TextField, List} from 'preact-mdl';
 import {getBankList, getBranchList} from '../lib/api';
-import _ from 'lodash';
+import _assign from 'lodash/assign';
+import _debounce from 'lodash/debounce';
+import _isEqual from 'lodash/isEqual';
 
 const Menu = ( props ) => {
   let data = props.data.filter(filterText(props.searchText));
@@ -22,7 +24,7 @@ const filterText = searchText => text => {
 export default class Content extends Component {
   constructor(props, context) {
     super(props, context);
-    this.state = _.assign({
+    this.state = _assign({
       bank: null,
       branch: null,
       allBanks: [],
@@ -33,7 +35,7 @@ export default class Content extends Component {
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    return !_.isEqual(this.state, nextProps.childState);
+    return !_isEqual(this.state, nextProps.childState);
   }
 
   async componentDidMount() {
@@ -58,7 +60,7 @@ export default class Content extends Component {
     return this.state.bank !== null && this.state.branch !== null;
   }
 
-  updateBanks = _.debounce(text => {
+  updateBanks = _debounce(text => {
     this.setState({
       bank: null,
       branch: null,
@@ -66,7 +68,7 @@ export default class Content extends Component {
     })
   }, 300)
 
-  updateBranches = _.debounce(text => {
+  updateBranches = _debounce(text => {
     this.setState({
       branch: null,
       searchBranchText: text

@@ -1,0 +1,13 @@
+CACHE MANIFEST
+#ver:1/9/2017, 8:33:30 PM
+#plugin:4.5.3
+
+CACHE:
+/dist/0.js
+/dist/bundle.js
+/dist/main.js
+/dist/main.css
+/
+
+NETWORK:
+*

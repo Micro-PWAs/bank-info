@@ -1,3 +1,4 @@
+require('offline-plugin/runtime').install();
 import { Component, h, render } from 'preact';
 import App from './components/App';
 
