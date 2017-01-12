@@ -38,3 +38,56 @@
 .floating-list .mdl-list .mdl-list__item:hover {
   background-color: #eee; 
 }
+
+/* custom dialog */
+.sDialog {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: rgba(96, 125, 139, 0.5);
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+  will-change: opacity;
+}
+
+.sDialog--visible {
+  opacity: 1;
+  pointer-events: visible;
+  transition: opacity 0.3s;
+}
+
+.sDialog_content {
+  padding: 10px;
+  box-shadow: 0 9px 46px 8px rgba(0,0,0,.14), 0 11px 15px -7px rgba(0,0,0,.12), 0 24px 38px 3px rgba(0,0,0,.2);
+  margin: 0px 15px;
+  background: #fff;
+}
+
+.sDialog_title {
+  padding: 24px 24px 0;
+  margin: 0;
+  font-size: 2.5rem;
+}
+
+.sDialog_actions {
+  padding: 8px 8px 8px 24px;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row-reverse;
+  -ms-flex-direction: row-reverse;
+  flex-direction: row-reverse;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+  

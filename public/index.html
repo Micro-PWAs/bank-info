@@ -22,130 +22,9 @@
   <title>Bank Info</title>
   <link rel="manifest" href="manifest.json">
   <link rel="preload" href="./dist/bundle.js" as="script">
-  <link rel="preload" href="./dist/main.css" as="style" onload="this.rel='stylesheet'">
-  <style>
-    body {
-      margin: 0;
-      background-color: #ddeafb;
-    }
-    #HEADER_1 {
-      box-shadow: rgba(0, 0, 0, 0.137255) 0px 2px 2px 0px, rgba(0, 0, 0, 0.2) 0px 3px 1px -2px, rgba(0, 0, 0, 0.117647) 0px 1px 5px 0px;
-      box-sizing: border-box;
-      color: rgb(255, 255, 255);
-      display: flex;
-      height: 56px;
-      max-height: 1000px;
-      min-height: 56px;
-      min-width: auto;
-      z-index: 3;
-      column-rule-color: rgb(255, 255, 255);
-      perspective-origin: 180px 28px;
-      transform-origin: 180px 28px;
-      background: rgb(233, 30, 99) none repeat scroll 0% 0% / auto padding-box border-box;
-      border: 0px none rgb(255, 255, 255);
-      flex: 0 0 auto;
-      flex-flow: column nowrap;
-      font: normal normal normal normal 14px / 20px Helvetica, Arial, sans-serif;
-      outline: rgb(255, 255, 255) none 0px;
-      transition: max-height 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0s, box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0s;
-  }/*#HEADER_1*/
-
-  #DIV_2 {
-      box-sizing: border-box;
-      color: rgb(255, 255, 255);
-      display: flex;
-      height: 56px;
-      min-height: auto;
-      min-width: auto;
-      width: 360px;
-      column-rule-color: rgb(255, 255, 255);
-      align-items: center;
-      perspective-origin: 180px 28px;
-      transform-origin: 180px 28px;
-      border: 0px none rgb(255, 255, 255);
-      flex: 0 0 auto;
-      font: normal normal normal normal 14px / 20px Helvetica, Arial, sans-serif;
-      outline: rgb(255, 255, 255) none 0px;
-      padding: 0px 16px 0px 72px;
-  }/*#DIV_2*/
-
-  #SPAN_3 {
-      bottom: 0px;
-      box-sizing: border-box;
-      color: rgb(255, 255, 255);
-      display: block;
-      height: 20px;
-      left: 0px;
-      letter-spacing: 0.4px;
-      min-height: auto;
-      min-width: auto;
-      position: relative;
-      right: 0px;
-      top: 0px;
-      width: 172.531px;
-      column-rule-color: rgb(255, 255, 255);
-      align-self: center;
-      perspective-origin: 86.2656px 10px;
-      transform-origin: 86.2656px 10px;
-      border: 0px none rgb(255, 255, 255);
-      flex: 0 0 auto;
-      font: normal normal normal normal 20px / 20px Roboto, Helvetica, Arial, sans-serif;
-      outline: rgb(255, 255, 255) none 0px;
-  }/*#SPAN_3*/
-
-  .signal {
-      border: 5px solid #e91e63;
-      border-radius: 30px;
-      height: 30px;
-      left: 50%;
-      margin: -15px 0 0 -15px;
-      opacity: 0;
-      position: absolute;
-      top: 50%;
-      width: 30px;
-  
-      animation: pulsate 1s ease-out;
-      animation-iteration-count: infinite;
-  }
-
-  @keyframes pulsate {
-      0% {
-        transform: scale(.1);
-        opacity: 0.0;
-      }
-      50% {
-        opacity: 1;
-      }
-      100% {
-        transform: scale(1.2);
-        opacity: 0;
-      }
-  }
-
-
-    .info {
-      position: absolute;
-      bottom: 0;
-      width: 100%;
-      padding: 10px;
-      background-color: #fff;
-      color: #333;
-      box-shadow: 0 -2px 10px #ddd;
-      z-index: 1;
-    }
-
-    .info_author_wrapper {
-      margin-left: 10px;
-    }
-
-    .info_contribute {
-      margin-right: 20px;
-      float: right;
-    }
-
-    .info a {
-      color: #E91E63;
-    }
+  <link rel="preload" id="css" href="./dist/main.css" as="style" onload="this.rel='stylesheet';this.className='css-loaded'">
+  <style id="criticalCSS">
+    #DIV_2,#HEADER_1{display:flex;height:56px;perspective-origin:180px 28px;transform-origin:180px 28px;font:normal normal normal normal 14px/20px Helvetica,Arial,sans-serif}#DIV_2,#SPAN_3{min-height:auto}#DIV_2,#HEADER_1,#SPAN_3{box-sizing:border-box;color:#fff;min-width:auto;column-rule-color:#fff;border:0 #fff;outline:#fff 0}body{margin:0;background-color:#ddeafb}#HEADER_1{box-shadow:rgba(0,0,0,.137255) 0 2px 2px 0,rgba(0,0,0,.2) 0 3px 1px -2px,rgba(0,0,0,.117647) 0 1px 5px 0;max-height:1000px;min-height:56px;z-index:3;background:#e91e63;flex:0 0 auto;flex-flow:column nowrap;transition:max-height .2s cubic-bezier(.4,0,.2,1) 0s,box-shadow .2s cubic-bezier(.4,0,.2,1) 0s}#DIV_2{width:360px;align-items:center;flex:0 0 auto;padding:0 16px 0 72px}#SPAN_3{bottom:0;display:block;height:20px;left:0;letter-spacing:.4px;position:relative;right:0;top:0;width:172.53px;align-self:center;perspective-origin:86.27px 10px;transform-origin:86.27px 10px;flex:0 0 auto;font:normal normal normal normal 20px/20px Roboto,Helvetica,Arial,sans-serif}.info,.signal{position:absolute}.signal{border:5px solid #e91e63;border-radius:30px;height:30px;left:50%;margin:-15px 0 0 -15px;opacity:0;top:50%;width:30px;animation:pulsate 1s ease-out;animation-iteration-count:infinite}@keyframes pulsate{0%{transform:scale(.1);opacity:0}50%{opacity:1}100%{transform:scale(1.2);opacity:0}}.info{bottom:0;width:100%;padding:10px;background-color:#fff;color:#333;box-shadow:0 -2px 10px #ddd;z-index:1}.info_author_wrapper{margin-left:10px}.info_contribute{margin-right:20px;float:right}.info a{color:#E91E63}
   </style>
 </head>
 <body>
@@ -162,5 +41,12 @@
     <span class="info_contribute"><a href="https://github.com/Micro-PWAs/ifsc-code-finder/">Contribute</a></span>
   </div>
   <script src="./dist/bundle.js" async></script>
+  <script>
+    var styleLoaded = document.querySelector('.css-loaded');
+    if(!styleLoaded){
+      console.log('css loading...');
+      document.querySelector('#css').setAttribute('rel', 'stylesheet');
+    }
+  </script>
 </body>
 </html>

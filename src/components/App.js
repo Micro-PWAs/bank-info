@@ -1,13 +1,12 @@
 import 'babel-polyfill';
+import 'whatwg-fetch';
 import 'material-design-lite';
 import { Component, h, render } from 'preact';
 import { Layout, Snackbar, Button, List} from 'preact-mdl';
 import Header from './Header';
+import Dialog from './Dialog';
 
-let Content,
-    getFullDetails,
-    dialogPolyfill,
-    Dialog;
+let Content, getFullDetails;
 
 export default class App extends Component { 
   constructor(props, context) {
@@ -21,16 +20,14 @@ export default class App extends Component {
 
   componentDidMount(){
     require.ensure([], _=>{
-      require('dialog-polyfill');
       Content = require('./Content').default;
-      Dialog = require('preact-mdl').Dialog
       getFullDetails = require('../lib/api').getFullDetails;
       this.setState({ loaded: true });
     });
   }
 
   findCode = async (childState) => {
-    this.dialog.showModal();
+    this.dialog.open();
     let response = await getFullDetails(childState.bank, childState.branch);
     this.setState({
       bankInfo: response.data,
@@ -45,9 +42,6 @@ export default class App extends Component {
   }
 
   registerDialog = dialog => {
-    if(!dialog.showModal) {
-      dialogPolyfill.registerDialog(dialog);
-    }
     this.dialog = dialog;
   }
 
@@ -63,10 +57,10 @@ export default class App extends Component {
       CITY,
       STATE 
     } = this.state.bankInfo;
+
     return (
       <div>
-        {this.state.loaded && 
-        <Dialog ref={ dialog => this.registerDialog(dialog.base) }>
+        <Dialog ref={ dialog => this.registerDialog(dialog) }>
           <Dialog.Title>
             <h4>{BANK}</h4>
           </Dialog.Title>
@@ -93,7 +87,6 @@ export default class App extends Component {
             <Button colored raised onClick={ _ => this.dialog.close() }>Close</Button>
           </Dialog.Actions>
         </Dialog>
-        }
         <Layout id="main" fixed-header>
           <Header />
           {this.state.loaded && 
