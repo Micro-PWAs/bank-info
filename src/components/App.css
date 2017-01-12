@@ -90,4 +90,10 @@
   flex-wrap: wrap;
 }
 
+@media screen and (max-height: 500px) {
+  .info {
+      display: none;
+  }
+}
+
   
