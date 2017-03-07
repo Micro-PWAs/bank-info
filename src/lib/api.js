@@ -1,4 +1,4 @@
-const API_URL = 'https://api.techm.co.in/api';
+const API_URL = '/api';
 
 export async function getBankList(){
   let response =  await fetch(`${API_URL}/listbanks`);
