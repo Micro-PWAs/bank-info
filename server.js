@@ -8,7 +8,7 @@ app.use(compression());
 app.use(express.static('public'));
 app.use('/dist', express.static('dist'));
 
-app.use('/api/:path', function(req, res){
+app.use('/api/:path(*)', function(req, res){
   var path = req.params.path;
   if(cache[path]){
     res.json( cache[path] );

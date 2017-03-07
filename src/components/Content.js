@@ -6,7 +6,7 @@ import _debounce from 'lodash/debounce';
 import _isEqual from 'lodash/isEqual';
 
 const Menu = ( props ) => {
-  let data = props.data.filter(filterText(props.searchText));
+  let data = (props.data || []).filter(filterText(props.searchText));
   if(data.length === 0) return <div />;
   return(
     <List>
